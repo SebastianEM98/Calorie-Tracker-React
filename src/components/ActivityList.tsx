@@ -19,26 +19,26 @@ export default function ActivityList({ activities, dispatch }: ActivityListProps
 
     return (
         <>
-            <h2 className="text-4xl font-bold text-slate-600 text-center mb-10">Food & Activities</h2>
+            <h2 className="sm:text-4xl text-3xl font-bold text-slate-600 text-center mb-10">Food & Activities</h2>
 
             {isEmptyActivities ?
                 <p className="text-center text-lg">There are no activities yet...</p>
                 :
                 activities.map(activity => (
-                    <div key={activity.id} className="px-5 py-10 bg-white mt-5 flex justify-between shadow-md">
+                    <div key={activity.id} className="px-5 py-10 sm:pb-10 pb-8 bg-white mt-5 flex justify-between shadow-md">
                         <div className="space-y-2 relative">
-                            <p className={`absolute -top-8 -left-8 px-10 py-2 text-white uppercase font-bold ${activity.category === 1 ? "bg-lime-500" : "bg-orange-500"}`}>
+                            <p className={`absolute -top-8 -left-8 px-10 py-2 sm:text-base text-sm text-white uppercase font-bold ${activity.category === 1 ? "bg-orange-500" : "bg-lime-500"}`}>
                                 {categoryName(+activity.category)}
                             </p>
 
-                            <p className="text-2xl font-bold pt-5">{activity.name}</p>
-                            <p className={`font-black text-4xl ${activity.category === 1 ? "text-lime-500" : "text-orange-500"}`}>
+                            <p className="sm:text-2xl text-xl font-bold pt-5">{activity.name}</p>
+                            <p className={`font-black sm:text-4xl text-2xl ${activity.category === 1 ? "text-orange-500" : "text-lime-500"}`}>
                                 {activity.calories} {''}
                                 <span>Calories</span>
                             </p>
                         </div>
 
-                        <div className="flex gap-5 items-center">
+                        <div className="flex sm:gap-5 gap-3 items-center">
                             <button
                                 className="cursor-pointer transition-transform duration-300 hover:scale-125 active:scale-105"
                                 onClick={() => dispatch({ type: 'set-activeId', payload: { id: activity.id } })}
